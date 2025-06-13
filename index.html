@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmark</title>
+    <!-- link font  -->
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <!-- link css -->
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <!-- link JS -->
+    <script defer src="./JS/bootstrap.bundle.min.js"></script>
+    <script defer src="https://kit.fontawesome.com/3b4caca58c.js" crossorigin="anonymous"></script>
+    <script defer src="./JS/index.js"></script>
+</head>
+
+<body>
+    <main class="py-5">
+        <div class="container d-flex justify-content-between align-items-center flex-column">
+            <h1 class="title position-relative">Bookmarker</h1>
+            <div
+                class="bookmark-body w-100 p-4   mt-5 d-flex flex-column align-items-center justify-content-center gap-4">
+                <h2 class="fw-bolder">
+                    <i class="fa-solid fa-bookmark"></i>
+                    Bookmark your favorite site!
+                    <i class="fa-solid fa-bookmark"></i>
+                </h2>
+                <div class="site-name w-100 d-flex flex-column justify-content-center">
+                    <label for="bookmarkName" class="pb-2 fw-semibold">
+                        <i class="fa-solid fa-book-bookmark pe-2"></i>
+                        Site Name</label>
+                    <input type="text" placeholder="Bookmark Name" class="form-control" id="bookmarkName">
+                </div>
+                <div class="site-url w-100 d-flex flex-column justify-content-center">
+                    <label for="bookmarkURL" class="pb-2 fw-semibold">
+                        <i class="fa-solid fa-link pe-2"></i>Site URL</label>
+                    <input type="url" placeholder="Website URL" class="form-control" id="bookmarkURL">
+                </div>
+                <button class="btn btn-submit px-5 btn-warning " id="submitBtn">Submit</button>
+            </div>
+            <table class="table mt-4 text-center bg-light">
+                <thead>
+                    <tr>
+                        <th class="text-capitalize">index</th>
+                        <th class="text-capitalize">Website Name</th>
+                        <th class="text-capitalize">Visit</th>
+                        <th class="text-capitalize">Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="tableContent">
+                    <!-- <tr>
+                        <td>1</td>
+                        <td>Carissa Bryant</td>
+                        <td>
+                            <button class="btn btn-visit btn-success">
+                                <i class="fa-solid fa-eye pe-2"></i>
+                                <a href="#" target="_blank">Visit</a>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-delete btn-danger pe-2">
+                                <i class="fa-solid fa-trash-can"></i>
+                                Delete
+                            </button>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="notification" class="box-info d-flex justify-content-center align-items-center bg-black position-fixed top-0 start-0 end-0 bottom-0 bg-opacity-75 d-none">
+            <!-- From Uiverse.io by kennyotsu -->
+            <div class="notifications-container ">
+                <div class="error-alert ">
+                    <div class="flex">
+                        <div class="close-button">
+                            <svg role="button" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                                <path clip-rule="evenodd" class="error-svg-path"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                    fill-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="error-prompt-container p-3">
+                            <p class="error-prompt-heading">Site Name or Url is not valid, Please follow the rules below :
+                            </p>
+                            <div class="error-prompt-wrap">
+                                <ul class="error-prompt-list
+                                d-flex flex-column gap-4" role="list">
+                                    <li>Site name must contain at least 3 characters</li>
+                                    <li>Site URL must be a valid one</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
