@@ -26,7 +26,7 @@ function addBookmark(data) {
         </td>
     `;
     BookmarkTable.appendChild(newRow);
-    
+
     // Save the new row to local storage
     saveTasks();
 }
@@ -56,7 +56,7 @@ function clearInputFields() {
     BookmarkUrl.value = "";
 }
 
-//  Hide notification when clicking on the error icon or box-info
+//  Event listener for Hide notification when clicking on the error icon or box-info
 notification.addEventListener("click", function (e) {
     if (e.target.classList.contains("error-svg-path") || e.target.classList.contains("error-svg")) {
         hideNotification();
@@ -66,7 +66,7 @@ notification.addEventListener("click", function (e) {
     }
 });
 
-// Hide notification when pressing the Escape key
+// Event listener for Hide notification when pressing the Escape key
 document.addEventListener("keydown", function (e) {
 
     if (e.key === "Escape") {
@@ -80,6 +80,7 @@ function hideNotification() {
 }
 // Function to show notification if the input data is invalid
 function showNotification(data) {
+    const urlRegex = /(?:https?:\/\/)?(?:www\.)?[a-zA-Z0-9\-]+(?:\.[a-zA-Z0-9\-]+)+(?:\:\d+)?(?:\/[^\s]*)?(?=\s|$)/;
     if (
         data.name === "" ||
         data.name === null ||
@@ -89,7 +90,7 @@ function showNotification(data) {
         data.url === "" ||
         data.url === undefined ||
         data.url.length < 3 ||
-        !/\.[a-zA-Z]{2,}$/.test(data.url)
+        !urlRegex.test(data.url)
     ) {
         notification.classList.remove("d-none");
         return true;
@@ -134,9 +135,10 @@ BookmarkName.addEventListener("input", function () {
 });
 // validate Bookmark URL input 
 BookmarkUrl.addEventListener("input", function () {
+    const urlRegex = /(?:https?:\/\/)?(?:www\.)?[a-zA-Z0-9\-]+(?:\.[a-zA-Z0-9\-]+)+(?:\:\d+)?(?:\/[^\s]*)?(?=\s|$)/;
     if (BookmarkUrl.value.length > 3 &&
         // BookmarkUrl.value.length < 20 &&
-        /\.[a-zA-Z]{2,}$/.test(BookmarkUrl.value)
+        urlRegex.test(BookmarkUrl.value)
     ) {
         BookmarkUrl.classList.add("is-valid");
         BookmarkUrl.classList.remove("is-invalid");
@@ -166,4 +168,4 @@ function loadTasks() {
         BookmarkTable.innerHTML = savedData;
     }
 }
-loadTasks();
+loadTasks();    
