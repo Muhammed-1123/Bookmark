@@ -166,6 +166,7 @@ function loadTasks() {
     const savedData = localStorage.getItem("Data");
     if (savedData) {
         BookmarkTable.innerHTML = savedData;
+        updateIndexes();
     }
 }
 loadTasks();    
